@@ -1,0 +1,19 @@
+{
+  "name": "UX-Lectures-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ckopecky/UX-Lectures-backend.git",
+  "author": "\"ckopecky\" <\"ckopecky@github.com\">",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "helmet": "^3.14.0",
+    "mongoose": "^5.3.9",
+    "nodemon": "^1.18.6"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  }
+}
