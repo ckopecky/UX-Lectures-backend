@@ -5,7 +5,7 @@ const lectureDefinition = {
     "Unit Title": {
         type: String,
         required: true,
-
+        createIndex: true
     },
     "Module Title": {
         type: String,
@@ -15,7 +15,7 @@ const lectureDefinition = {
     "Video Title": {
         type: String,
         required: true,
-        createIndex: true,
+
     },  
     "Website-URL": { 
         type: String,
