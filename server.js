@@ -7,14 +7,14 @@ const port = process.env.PORT || 5000;
 const cors = require("cors");
 const helmet = require("helmet");
 const mongoose = require("mongoose");
-const database = "heroku_lrgcbcfr";
+const database = "ux1lectures";
 const user = process.env.USERS; //when you use USER, the computer reads it as user of PC - so it read ckopecky and not what's in .env file. Don't user USER. 
 const password = process.env.PW;
 
 const lectureController = require("./lectureController");
 const mongoOptions =  { useNewUrlParser: true } 
 //database connection
-mongoose.connect(`mongodb://${user}:${password}@ds153093.mlab.com:53093/${database}`
+mongoose.connect(`mongodb://localhost:27017/${database}`
     , mongoOptions)
     .then((mongoose)=> {
         console.log(user, password)
