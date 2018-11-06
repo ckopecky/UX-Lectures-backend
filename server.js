@@ -3,7 +3,7 @@ require("dotenv").config();
 const server = express();
 
 const port = process.env.PORT || 5000;
-
+const axios = require('axios');
 const cors = require("cors");
 const helmet = require("helmet");
 const mongoose = require("mongoose");
@@ -15,7 +15,8 @@ const lectureController = require("./lectureController");
 const mongoOptions =  { useNewUrlParser: true } 
 //database connection
 //${user}:${password}@ds145093.mlab.com:45093
-mongoose.connect(`mongodb://${user}:${password}@ds145093.mlab.com:45093/${database}`, mongoOptions)
+
+axios.get(`https://api.mlab.com/api/1/databases?apiKey=DF1x1YhYYiP7XwuG2YUSZJdg0IQ4Agcb`, mongoOptions)
     .then((mongoose)=> {
         console.log(`Connected to ${database} on mongoDb`);
     })
