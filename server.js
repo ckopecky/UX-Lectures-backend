@@ -6,24 +6,24 @@ const port = process.env.PORT || 5000;
 
 const cors = require("cors");
 const helmet = require("helmet");
-var mongodb = require('mongodb');
-var MongoClient = mongodb.MongoClient;
+var mongoose = require('mongoose');
 const database = "ux1lecturesdb";
 const user = process.env.USERS; //when you use USER, the computer reads it as user of PC - so it read ckopecky and not what's in .env file. Don't user USER. 
 const password = process.env.PW;
-
+const mongoOptions = {useNewUrlParser: true}
 const lectureController = require("./lectureController");
 //database connection
 // var url = `mongodb://localhost:27017/${database}`;
-var url = `mongodb://${user}:${password}@ds145093.mlab.com:45093/${database}`;
+var url = `mongodb://cmvnk:UX1Lectures@ds145093.mlab.com:45093/ux1lecturesdb`;
 
 
-MongoClient.connect(url, function (err, db) {
+mongoose.connect(url,mongoOptions, (err, db)=>{
     if (err) {
         console.log('Unable to connect to the mongoDB server. Error:', err);
     } else {
         console.log('Connection established to', url);
     }
+
 })
 //middleware
 
