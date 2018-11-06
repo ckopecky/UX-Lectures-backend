@@ -52,7 +52,7 @@ server.use(express.json());
 server.use(cors(corsOptions));
 server.use(helmet());
 
-server.use("/api/lectures", lectureController);
+server.use("/api/lectures/", lectureController);
 
 
 
