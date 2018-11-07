@@ -50,7 +50,7 @@ const generateToken = (user) => {
                 if (hashMatch) {
                     const token = generateToken(user);
                     res.status(200).json({ message: `Hello, ${user.username}`, token }); 
-                    localStorage.setItem({"jwt": token});return;
+                    return;
                     // sends the token back to the client
                 }
                 else {
