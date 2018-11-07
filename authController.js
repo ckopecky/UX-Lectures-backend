@@ -22,7 +22,7 @@ const generateToken = (user) => {
             .then(user => {
             if(user.username){
                 const token = generateToken(user);
-                res.status(201).json({user: user.username, token});
+                res.status(201).json({user: user.username, headers: { Authentication: token }});
             }
             else{
                 res.status(422).json({Error:err.message})
@@ -49,7 +49,7 @@ const generateToken = (user) => {
                 .then(hashMatch => {
                 if (hashMatch) {
                     const token = generateToken(user);
-                    res.status(200).json({ message: `Hello, ${user.username}`, headers: { Authentication: token }}); 
+                    res.status(200).json({ message: `Hello, ${user.username}`,token }); 
                     return;
                     // sends the token back to the client
                 }

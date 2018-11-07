@@ -3,7 +3,7 @@ require("dotenv").config();
 const server = express();
 
 const port = process.env.PORT || 5000;
-
+const jwt = require("jsonwebtoken");
 const cors = require("cors");
 const helmet = require("helmet");
 var mongoose = require('mongoose');
@@ -37,8 +37,8 @@ const authenticate = (req, res, next) => {
     console.log("get token", token)
     
     if (token) { //token authentication on server side
-        jwt.verify(token, secret, (err, decodedToken) => {
-        console.log(decodedToken);
+        jwt.verify(token, mysecret, (err, decodedToken) => {
+        console.log("decoded Token", decodedToken);
         if(err){
             return res
                 .status(401)

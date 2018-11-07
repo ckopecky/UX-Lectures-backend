@@ -5,7 +5,6 @@ const LectureModel = require("./lectureSchema");
 const get = (req, res) => { //works
     LectureModel.find()
         .then(lectures => {
-            console.log(lectures);
             if(lectures.length===0){
                 res.status(404).json({Message: "lectures not found"})
             } else {
