@@ -33,20 +33,24 @@ mongoose.connect(url,mongoOptions, (err, db)=>{
 //restricted function goes here for auth later
 const authenticate = (req, res, next) => {
     // You won't need to change anything in this file here.
-    const token = req.get('Authorization');
-    if (token) {
-        jwt.verify(token, mysecret, (err, decoded) => {
-            if (err) return res.status(422).json(err);
-            req.decoded = decoded;
-            next();
-        });
-    } else {
-        return res.status(403).json({
-            error: 'No token provided, must be set on the Authorization Header'
-        });
-    }
-};
+    const token = req.headers.authorization;
+    console.log("get token", token)
+    
+    if (token) { //token authentication on server side
+        jwt.verify(token, secret, (err, decodedToken) => {
+        console.log(decodedToken);
+        if(err){
+            return res
+                .status(401)
+                .json({ message: 'you shall not pass! not decoded' });
+        }
 
+        next();
+    });
+    } else {
+    res.status(401).json({ message: 'you shall not pass! no token' });
+    }
+}
 
 //global
 

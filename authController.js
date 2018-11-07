@@ -49,7 +49,7 @@ const generateToken = (user) => {
                 .then(hashMatch => {
                 if (hashMatch) {
                     const token = generateToken(user);
-                    res.status(200).json({ message: `Hello, ${user.username}`, token }); 
+                    res.status(200).json({ message: `Hello, ${user.username}`, headers: { Authentication: token }}); 
                     return;
                     // sends the token back to the client
                 }
