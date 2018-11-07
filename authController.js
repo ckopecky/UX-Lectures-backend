@@ -77,7 +77,7 @@ const generateToken = (user) => {
             
             })
             .catch(err => {
-                res.status(500).json({Error: "There was an error in retrieving lectures", err});
+                res.status(500).json({Error: "There was an error in retrieving users", err});
             });
     
     };
