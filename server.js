@@ -42,7 +42,7 @@ const authenticate = (req, res, next) => {
         if(err){
             return res
                 .status(401)
-                .json({ message: 'you shall not pass! not decoded' });
+                .json({ message: 'you shall not pass! not decoded', err });
         }
 
         next();
