@@ -10,7 +10,8 @@ const generateToken = (user) => {
     const payload = {
         username: user.username
     }; // what will determine our payload.
-    return jwt.sign(payload, mysecret, options); // creates our JWT with a secret and a payload and a hash.
+    const token = jwt.sign(payload, mysecret, options); // creates our JWT with a secret and a payload and a hash.
+    return localStorage.setItem('jwt', token);
 }
 
     const register = (req, res) => {

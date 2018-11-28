@@ -54,17 +54,16 @@ const authenticate = (req, res, next) => {
 
 //global
 
-const corsOptions = {
-    origin: '*',
-    optionsSuccessStatus: 200,
-    credentials: true // some legacy browsers (IE11, various SmartTVs) choke on 204
-  }
+
 
 server.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin');
     res.setHeader('Authorization');
     next();
 });
+const corsOptions = {
+    origin: '*',
+    credentials: true 
+}
 
 server.use(express.json());
 server.use(cors(corsOptions));
